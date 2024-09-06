@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string("title");
+            $table->string("ingredient");
             $table->string("body");
             $table->double("protein");
             $table->double("fat");
