@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string("title");
+            $table->string("ingredient");
             $table->string("body");
             $table->double("protein");
             $table->double("fat");
             $table->double("carbonhydrate");
-            $table->string("image_url");
+            $table->double("calorie");
+            $table->string("image_url")->nullable(true)->default(NULL);
             $table->timestamps();
+            $table->timestamp("deleted_at")->nullable(true)->default(NULL);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('type_category_id')->constrained()->onDelete('cascade');

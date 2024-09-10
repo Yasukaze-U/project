@@ -1,17 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+    
+    <h1>vitabite</h1>
+    <div class="posts">
+        @foreach ($posts as $post)
+            <div class="post">
+                <h2 class="title">{{ $post->title }}</h2>
+                <p class="body">{{ $post->body }}</p>
+                <div class="id">
+                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                    <a href="/categories/{{ $post->type_category->id }}">{{ $post->type_category->name }}</a>
+                    <a href="/categories/{{ $post->calorie_category->id }}">{{ $post->calorie_category->name }}</a>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </x-app-layout>
