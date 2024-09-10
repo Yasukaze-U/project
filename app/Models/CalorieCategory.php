@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class calorieCategory extends Model
 {
     use HasFactory;
+    
+    public function posts(){
+        return $this->hasMany(Post::class);  
+    }
 }

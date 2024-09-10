@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
     use SoftDeletes;
-    protected $fillable = ["title", "body", "category_id"];
+    protected $fillable = ["title", "body", "ingredient", "protein", "fat", "calorie", "carbonhydrate",  "category_id", "type_category_id", "calorie_category_id"];
     use HasFactory;
     
     public function getByLimit(int $limit_count = 10)
@@ -20,6 +20,18 @@ class Post extends Model
     
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+    
+    public function type_category(){
+        return $this->belongsTo(TypeCategory::class);
+    }
+    
+    public function calorie_category(){
+        return $this->belongsTo(CalorieCategory::class);
+    }
+    
+    public function user(){
+        return $this->belongsTo(User::class);
     }
     
     function getPaginateByLimit(int $limit_count = 5){

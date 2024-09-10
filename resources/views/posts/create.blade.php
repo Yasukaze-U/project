@@ -16,7 +16,27 @@
         <div>
             <label for="ingredient">具財</label>
             <textarea type="text" name="post[ingredient]" value="{{ old("post.ingredient") }}"></textarea>
-            <p class="body_error" style="color:red">{{$errors->first("post.ingredient")}}</p>
+            <p class="ingredient_error" style="color:red">{{$errors->first("post.ingredient")}}</p>
+        </div>
+        <div>
+            <label for="protein">タンパク質(g)</label>
+            <input type="number" name="post[protein]" value="{{ old("post.protein") }}"></input>
+            <p class="protein_error" style="color:red">{{$errors->first("post.protein")}}</p>
+        </div>
+        <div>
+            <label for="fat">脂肪(g)</label>
+            <input type="number" name="post[fat]" value="{{ old("post.fat") }}"></input>
+            <p class="fat_error" style="color:red">{{$errors->first("post.fat")}}</p>
+        </div>
+        <div>
+            <label for="carbonhydrate">炭水化物(g)</label>
+            <input type="number" name="post[carbonhydrate]" value="{{ old("post.carbonhydrate") }}"></input>
+            <p class="carbonhydrate_error" style="color:red">{{$errors->first("post.carbonhydrate")}}</p>
+        </div>
+        <div>
+            <label for="calorie">カロリー(kcal)</label>
+            <input type="number" name="post[calorie]" value="{{ old("post.calorie") }}"></input>
+            <p class="calorie_error" style="color:red">{{$errors->first("post.calorie")}}</p>
         </div>
         <div>
             <label for="body">工程</label>
@@ -43,5 +63,5 @@
         </div>
         <input type="submit" value="送信"/>
     </form>
-    <a href="/">back</a>
+    <a href="/dashboard">back</a>
 </x-app-layout>
