@@ -20,6 +20,10 @@
                         {{ __('作成') }}
                     </x-nav-link>
                     
+                    <x-nav-link :href="route('mypage')" :active="request()->routeIs('mypage')">
+                        {{ __('マイページ') }}
+                    </x-nav-link>
+                    
                 </div>
             </div>
 
