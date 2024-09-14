@@ -34,5 +34,5 @@ Route::group(["middleware" => ["auth"]], function(){
    Route::get("/posts/{post}", [PostController::class, "show"])->name("show"); 
    Route::get("mypage", [PostController::class, "mypage"])->name("mypage"); 
    Route::post("/posts", [PostController::class, "store"]); 
-   
+   Route::delete('/posts/{post}', [PostController::class,'delete']);
 });

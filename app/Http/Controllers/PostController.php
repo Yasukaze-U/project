@@ -38,4 +38,8 @@ class PostController extends Controller
         return view("mypage")->with(["myPosts"=>$user->getByUser()]);
     }
     
+    public function delete(Post $post){
+        $post->delete();
+        return redirect("mypage");
+    }
 }
