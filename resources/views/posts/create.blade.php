@@ -1,11 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1>header</h1>
+        <h1>新規作成</h1>
     </x-slot>
     
-    <div class="top">
-        <h1>新規作成</h1>
-    </div>
     <form action="/posts" method="POST">
         @csrf
         <div>
