@@ -2,6 +2,10 @@
     <x-slot name="header">
     </x-slot>
     
+    <div class="search">
+        
+    </div>
+    
     <div class="posts">
         @foreach ($posts as $post)
             <div class="post">
