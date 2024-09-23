@@ -2,6 +2,28 @@
     <x-slot name="header">
     </x-slot>
     
+    <form action="search" method="GET">
+        @csrf
+        <dev>
+            <p>
+                <a>キーワード</a>
+                <textarea type="text" name="keyword">{{ old("keyword") }}</textarea>
+            </p>
+        </dev>
+        
+        <dev>
+            <p>
+                <a>カロリー量：</a>
+                <input type="number" name="calorie_min" value="{{ old("calorie_min") }}" placeholder="下限なし"></input>
+                <a>(g)から</a>
+                <input type="number" name="calorie_max" value="{{ old("calorie_max") }}" placeholder="上限なし"></input>
+                <a>(g)</a>
+            </p>
+        </dev>
+        
+        <input type="submit" value="検索">
+    </form>
+    
     <div class="posts">
         @csrf
         @foreach ($posts as $post)
