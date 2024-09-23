@@ -16,6 +16,10 @@
                         {{ __('TOP') }}
                     </x-nav-link>
                     
+                    <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
+                        {{ __('検索') }}
+                    </x-nav-link>
+                    
                     <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
                         {{ __('作成') }}
                     </x-nav-link>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     public function top(Post $post){
-        return view("dashboard")->with(["posts"=>$post->get()]);
+        return view("dashboard")->with(["posts"=>$post->getByLimit()]);
     }
     public function create(Category $category, TypeCategory $type_category, CalorieCategory $calorie_category){
         return view("posts.create")->with(['categories' => $category->get()])->with(['type_categories' => $type_category->get()])->with(['calorie_categories' => $calorie_category->get()]);
@@ -41,5 +41,18 @@ class PostController extends Controller
     public function delete(Post $post){
         $post->delete();
         return redirect("mypage");
+    }
+    
+    public function index(Post $posts){
+        return view("index")->with(["posts"=>$posts->get()]);
+    }
+    
+    public function search(Request $request, Post $posts){
+        $keyword = $request->input("keyword");
+        $calorie_min = $request->input("calorie_min");
+        $calorie_max = $request->input("calorie_max");
+        
+        //dd($request);
+        return view("index")->with(["posts"=>$posts->getBySearch($keyword, $calorie_min, $calorie_max)]);
     }
 }
